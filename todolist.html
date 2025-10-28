@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO-DO-LIST</title>
+    <link rel="stylesheet" href="todolist.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <center>
+      <div class="main">
+        <div class="submain">
+            <a href="C:\Users\ramesh\OneDrive\Desktop\create\projects.html"><i class="fa-solid fa-arrow-left"></i>Back</a>
+            <div class="list">
+                <h1>TO-DO-LIST</h1>
+                <div>
+                <input type="text" placeholder="enter your name" id="username"><br><br>
+                <div id="error"></div>
+                </div>
+               <div>
+                  <input placeholder="enter your email" id="email"><br><br>
+                <div id="error"></div>
+               </div>
+               <div>
+                <input  placeholder="enter password" id="pass"><br><br>
+                <div id="error"></div>
+               </div>
+               <div> <input  placeholder="re-enter password" id="rePass"><br><br>
+                <div id="error"></div></div>
+                <button id="submit" >login</button>
+            </div>
+        </div>
+    </div>
+        <table id="tbl">
+        <thead>
+        <tr >
+        <th>Username</th>
+        <th>Email</th>
+        <th>Password</th>
+        </tr>
+    </thead>
+    <tbody id="root"></tbody>
+  </table>
+  
+  </center>
+ 
+
+  <script>
+
+
+    document.querySelector("#submit").addEventListener("click",()=>{
+ 
+
+
+    const errordisplay=(element,message)=>{
+        const err = element.parentElement
+        const dis = err.querySelector("#error")
+        dis.innerHTML = message
+    }
+
+       const display=(element,message)=>{
+        const err = element.parentElement
+        const dis = err.querySelector("#error")
+        dis.innerHTML = ''
+    }
+
+    const validName=(name)=>{
+    const user = /^[a-zA-Z][a-zA-Z0-9_]{2,15}$/
+    return user.test(name)
+    }
+
+        const validEmail=(email)=>{
+    const verifyEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    return verifyEmail.test(email)
+    }
+
+  const validPassword=(pass)=>{
+    const res=/^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@.#$!%?&])[A-Za-z\d@.#$!%?&]{8,15}$/
+    return res.test(pass)
+}
+
+
+    const userName = document.querySelector("#username").value 
+    const Email = document.querySelector("#email").value
+    const Password = document.querySelector("#pass").value
+    const rePassword = document.querySelector("#rePass").value
+    
+
+    if(userName == ""){
+        errordisplay(username,"enter username")  
+    }else if(!validName(userName)){
+            errordisplay(username,"special characters are not allowed")  
+    }else{
+        display(username)
+    }
+
+    if(Email == ""){
+        errordisplay(email,"enter email")
+    }else if(!validEmail(Email)){
+        errordisplay(email,"enter valid email")
+    }else{
+        display(email)
+    }
+
+    
+    if(Password == ""){
+        errordisplay(pass,"enter password")
+    }else if(Password.length <= 8){
+        errordisplay(pass,"password must be 8 characters")
+    }
+    // else if(!validPassword(Password)){
+    //     errordisplay(pass,"enter strong password")
+    // }
+    else{
+        display(pass)
+    }
+
+       if(rePassword == ""){
+        errordisplay(rePass,"re-enter password")
+    }else if(rePassword != Password){
+        errordisplay(rePass,"password incorrect")
+    }else{
+        display(rePass)
+    }
+    
+  
+
+    
+   
+    const appendTable=(userName,Email,Password)=>{
+        const root = document.getElementById("root")
+        const tr = document.createElement("tr")
+        tr.innerHTML = `
+
+        <td>${userName}</td>
+        <td>${Email}</td>
+        <td>${Password}</td>
+       `
+        root.append(tr)
+
+    }
+      
+   
+
+    if(userName&&Email&&Password){
+        appendTable(userName,Email,Password)
+    }
+
+ 
+
+
+
+    })
+
+  
+
+  
+
+  </script>
+    
+        
+</body>
+</html>

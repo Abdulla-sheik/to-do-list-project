@@ -1,0 +1,106 @@
+
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .main{
+            background-image: url(images/netflex.png);
+            height: 100vh;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: none;
+        }
+        .submain{
+            position: relative;
+            top: 150px;
+
+        }
+        .submain a{
+            color: white;
+            position: relative;
+            right: 640px;
+            bottom: 100px;
+            border: 2px solid red;
+            padding: 6px 27px;
+            text-decoration: none;
+            background: black;
+            border-radius: 7px;
+        }
+        .submain i{
+            
+margin-left: -10px;
+            
+margin-right: 8px;
+        }
+        .list{
+            border: solid 2px rgb(187, 38, 38);
+            width: 26%;
+            padding: 20px 20px;
+            border-radius: 20px;
+            background-color: black;
+        }
+        .list h1{
+            color: rgb(122, 33, 18);
+            font-size: 30px;
+            margin-bottom: 36px;
+            filter: brightness(1.5);
+        }
+        .list input{
+            border:  solid 2px rgb(131, 25, 17);
+            padding: 10px 100px 10px 12px;
+            text-transform: capitalize;
+            text-decoration: none;
+            background: radial-gradient(black, transparent); 
+            border-radius: 8px;
+            color: white;
+        }
+        .list button{    
+            border: none;     
+            padding: 5px 30px;      
+            border-radius: 8px;  
+            color: white;  
+            background: rgb(122, 33, 18);
+            cursor: pointer;
+        }
+        #error{
+            color: red;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+        #tbl{
+            color: red;
+            width: 80%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: black;
+        }
+          
+
+  th, td {
+    border: 1px solid white;
+    padding: 10px;
+    text-align: left;
+  }
+
+  th {
+    background-color: black;
+    columns: white;
+  }
+
+  tr:hover {
+    background-color: #f9f9f9;
+  }
+
+  text-decoration: none;
+    border: 2px solid rebeccapurple;
+    color: white;
+    background: black;
+    position: relative;
+    top: 50px;
+    left: 50px;
+    padding: 8px 20px;
+    border-radius: 9px;
+    cursor: pointer;
